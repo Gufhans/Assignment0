@@ -17,5 +17,17 @@ public class Exercise3
 
     }
 
-    public bool isLeapYear(int year) => (year%4 == 0 || year%400 == 0) ? true : false;
+    public bool isLeapYear(int year)
+    {
+        if (year%4 == 0 && year%100 !=0)
+        {
+            return true;
+        }
+        if (year%100 == 0 && year%400 == 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
