@@ -47,6 +47,20 @@ public class UnitTest1
     }
 
     [Fact]
+    public void DivisibleBy400WithTrueInput2()
+    {
+        //Arrange
+        var is_This_A_Leap_Year = new Exercise3();
+
+
+        //Act
+        var output = is_This_A_Leap_Year.isLeapYear(2000);
+
+        //Assert
+        output.Should().Be(true);
+    }
+
+    [Fact]
     public void DivisibleBy400WithFalseInput()
     {
         //Arrange
