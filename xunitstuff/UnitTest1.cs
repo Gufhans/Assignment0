@@ -12,7 +12,7 @@ public class UnitTest1
 
 
         //Act
-        var output = is_This_A_Leap_Year.isLeapYear(8);
+        var output = is_This_A_Leap_Year.isLeapYear(1604);
 
         //Assert
         output.Should().Be(true);
@@ -26,7 +26,7 @@ public class UnitTest1
 
 
         //Act
-        var output = is_This_A_Leap_Year.isLeapYear(9);
+        var output = is_This_A_Leap_Year.isLeapYear(1603);
 
         //Assert  
         output.Should().Be(false);  
@@ -84,5 +84,16 @@ public class UnitTest1
 
         //Assert
         output.Should().Throw<FormatException>();
+    }
+
+    [Fact]
+    public void inputSmallerThan1582()
+    {
+        //Arrange
+        var is_This_A_Leap_Year = new Exercise3("1200");
+        //Act
+        var output =is_This_A_Leap_Year.isLeapYear(1200);
+        //Assert
+        output.Should().Be(false);
     }
 }

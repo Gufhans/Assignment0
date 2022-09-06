@@ -15,7 +15,7 @@ public class Exercise3
     public Exercise3()
     {
         Console.WriteLine("Welcome to the find-out-leap-year-tron-3000!");
-        Console.WriteLine("This system determines whether or not a given year is a leap year.");
+        Console.WriteLine("This system determines whether or not a given year after 1582 is a leap year.");
         Console.WriteLine("The system will respond with either a yay or nay.");
         Console.WriteLine("If you type Exit, the system will terminate.");
         consoleSetup();
@@ -58,6 +58,12 @@ public class Exercise3
 
     public bool isLeapYear(int year)
     {
+        if (year < 1582)
+        {
+            Console.WriteLine("The system only accpets input larger than 1582");
+            return false;
+        }
+        
         if (year%4 == 0 && year%100 !=0)
         {
             Console.WriteLine("yay");
