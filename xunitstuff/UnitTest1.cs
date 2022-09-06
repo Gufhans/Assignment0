@@ -8,7 +8,7 @@ public class UnitTest1
     public void DivisibleByFourWithTrueInput()
     {
         //Arrange
-        var is_This_A_Leap_Year = new Exercise3();
+        var is_This_A_Leap_Year = new Exercise3("0");
 
 
         //Act
@@ -22,7 +22,7 @@ public class UnitTest1
     public void DivisibleByFourWithFalseInput()
     {
         //Arrange
-        var is_This_A_Leap_Year = new Exercise3();
+        var is_This_A_Leap_Year = new Exercise3("0");
 
 
         //Act
@@ -36,7 +36,7 @@ public class UnitTest1
     public void DivisibleBy400WithTrueInput()
     {
         //Arrange
-        var is_This_A_Leap_Year = new Exercise3();
+        var is_This_A_Leap_Year = new Exercise3("0");
 
 
         //Act
@@ -50,7 +50,7 @@ public class UnitTest1
     public void DivisibleBy400WithTrueInput2()
     {
         //Arrange
-        var is_This_A_Leap_Year = new Exercise3();
+        var is_This_A_Leap_Year = new Exercise3("0");
 
 
         //Act
@@ -64,7 +64,7 @@ public class UnitTest1
     public void DivisibleBy400WithFalseInput()
     {
         //Arrange
-        var is_This_A_Leap_Year = new Exercise3();
+        var is_This_A_Leap_Year = new Exercise3("0");
 
 
         //Act
@@ -72,5 +72,17 @@ public class UnitTest1
 
         //Assert
         output.Should().Be(false);
+    }
+    [Fact]
+    public void throwFormatExceptionOnIncorrectInput()
+    {
+        //Arrange
+        var is_This_A_Leap_Year = new Exercise3("Test");
+        
+        //Act
+        Action output = () => is_This_A_Leap_Year.isLeapYear("Test");
+
+        //Assert
+        output.Should().Throw<FormatException>();
     }
 }
