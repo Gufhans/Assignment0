@@ -92,8 +92,18 @@ public class UnitTest1
         //Arrange
         var is_This_A_Leap_Year = new Exercise3("1200");
         //Act
-        var output =is_This_A_Leap_Year.isLeapYear(1200);
+        var output =is_This_A_Leap_Year.isLeapYear("1200");
         //Assert
         output.Should().Be(false);
+    }
+    [Fact]
+    public void inputBiggerThan1582()
+    {
+        //Arrange
+        var is_This_A_Leap_Year = new Exercise3("1604");
+        //Act
+        var output =is_This_A_Leap_Year.isLeapYear("1604");
+        //Assert
+        output.Should().Be(true);
     }
 }

@@ -86,6 +86,13 @@ public class Exercise3
     public bool isLeapYear(string year)
     {
         int test = Int32.Parse(year);
-        return false;
+        if (test < 1582)
+        {
+            return false;
+        }
+        else 
+        {
+            return true;
+        }
     }
 }
