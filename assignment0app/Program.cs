@@ -18,7 +18,7 @@ public class Exercise3
         Console.WriteLine("This system determines whether or not a given year after 1582 is a leap year.");
         Console.WriteLine("The system will respond with either a yay or nay.");
         Console.WriteLine("If you type Exit, the system will terminate.");
-        consoleSetup();
+        inputSetup();
     }
 
     public Exercise3(string input)
@@ -34,7 +34,7 @@ public class Exercise3
         }
     }
 
-    public void consoleSetup() 
+    public void inputSetup() 
     {
         Console.WriteLine("Please type in a year:");
         string s = Console.ReadLine();
@@ -46,35 +46,40 @@ public class Exercise3
         try
         {
             int year = Int32.Parse(s);
-            isLeapYear(year);
-            consoleSetup();
+            if (year < 1582)
+            {
+                Console.WriteLine("The system only accpets input larger than 1582");
+                inputSetup();
+            }
+
+            var output = isLeapYear(year);
+
+            if (output)
+            {
+                Console.WriteLine("yay");
+            } else 
+            {
+                Console.WriteLine("nay");
+            }
+            inputSetup();
         }
         catch (FormatException)
         {
             Console.WriteLine("Unable to parse input - avoid letters and stick to numbers only!");
-            consoleSetup();
+            inputSetup();
         }
     }
 
     public bool isLeapYear(int year)
-    {
-        if (year < 1582)
-        {
-            Console.WriteLine("The system only accpets input larger than 1582");
-            return false;
-        }
-        
+    {   
         if (year%4 == 0 && year%100 !=0)
         {
-            Console.WriteLine("yay");
             return true;
         }
         if (year%100 == 0 && year%400 == 0)
         {
-            Console.WriteLine("yay");
             return true;
         }
-        Console.WriteLine("nay");
         return false;
     }
 
